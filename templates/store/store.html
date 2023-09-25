@@ -1,0 +1,155 @@
+
+{% extends 'base.html' %}
+
+{% load static %}  
+
+
+{%block content%}
+
+
+
+
+<br><br><br><br>
+
+
+
+
+    <!-------------------------------------product heading section----------------------------------->
+    <section class="product-section0 section">
+
+    {% if 'search' in request.path %}
+		<h2 class="title-page">Search Result</h2>
+	{% else %}
+
+    <h1>Store</h1> : 0 product(s) searched
+{% endif %}
+  </section>
+
+  
+
+  <!------------------------------------------------------First section------------------------------------------------------------->
+
+    <section class="product-section1 section">
+
+    <div class="left-column">
+
+
+      <!------------------------------left Arcodion-------------------------------->
+
+      <div class="containerFluid">
+        
+        <div class="accordion">
+          <div class="icon"></div>
+          <h5>Categories</h5>
+        </div>
+        <div class="panel">
+          <ul>
+            {% for category in links %}
+            <li><a href="{{ category.get_url }}">{{category.category_name}}</a></li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+        
+
+
+
+    
+
+        <!------------------------------ Arcodion-------------------------------->
+      </div>
+
+
+
+      
+    <div class="right-column">
+      <div class="top-info">
+      <p><strong>{{product_count}}</strong> items found</p>
+      <hr>
+    </div>
+
+      {% for product in products %}
+
+      <div class="product-card">
+          
+        <div class="badge">Hot</div>
+        <a href="{{ product.get_url }}">
+          <div class="product-tumb">
+          <img src="{{ product.images.url }}" alt="">
+        </div>
+      </a>
+        <div class="product-details">
+          <span class="product-catagory">{{ product.category }}</span>
+          <h4><a href="{{ product.get_url }}">{{ product.product_name }}</a></h4>
+          <p>{{ product.description }}</p>
+          <div class="product-bottom-details">
+            <div class="product-price">N {{ product.price }}</div>
+            <div class="product-links">
+              <a href=""><i class="uil uil-thumbs-up"></i></a>
+              <a href="{% url 'add_cart' product.id %}"><i class="uil uil-shopping-cart"></i></a>
+            </div>
+          </div>
+        </div>
+      
+      </div>
+
+      {% endfor %}
+
+
+
+
+
+
+
+    </div>
+    </section>
+
+    <section class="product-section2 section">
+      {% if products.has_other_pages %}
+      <ul class="pagination">
+        {% if products.has_previous %}
+        <li class="icon"><a href="?page={{products.previous_page_number}}"><span class="fas fa-angle-left"></span>Previous</a></li>
+          {% else %}
+          <li class="icon disabled"><a href="#"><span class="fas fa-angle-left"></span>Previous</a></li>
+          {% endif %}
+
+          {% for i in products.paginator.page_range %}
+				{% if products.number == i %}
+        <li><a href="#">{{i}}</a></li>
+        {% else %}
+        <li><a href="?page={{i}}">{{i}}</a></li>
+        {% endif %}
+        {% endfor %}
+
+        {% if products.has_next %}
+        <li class="icon"> <a href="?page={{products.next_page_number}}">Next<span class="fas fa-angle-right"></span></a> </li>
+        {% else %}
+        <li class="icon"> <a href="#">Next<span class="fas fa-angle-right"></span></a> </li>
+        {% endif %}
+      </ul>
+      {% endif %}
+
+
+  
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}
