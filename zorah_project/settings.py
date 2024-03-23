@@ -100,7 +100,7 @@ AUTH_USER_MODEL = 'accounts.Account'
 #     }
 # }
 
- DATABASES = {
+DATABASES = {
      'default': {
          'ENGINE': 'django.db.backends.postgresql',
          'NAME': 'Fastapi',
