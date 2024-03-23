@@ -95,20 +95,20 @@ AUTH_USER_MODEL = 'accounts.Account'
 # }
 # '''
 
-if not DEBUG:
-    DATABASES = {
+#if not DEBUG:
+DATABASES = {
 	"default": dj_database_url.parse('postgres://fastapi_hfri_user:5c3cJnKO6ZkxFzXWVs5oR64ri7TxMDce@dpg-cno5cmfsc6pc73bbovtg-a.oregon-postgres.render.com/fastapi_hfri')
 }
 
 
-else:
+#else:
 
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-           'NAME': BASE_DIR / 'db.sqlite3',
-        }
-    }
+ #   DATABASES = {
+  #      'default': {
+   #         'ENGINE': 'django.db.backends.sqlite3',
+    #       'NAME': BASE_DIR / 'db.sqlite3',
+     #   }
+    #}
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
