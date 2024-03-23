@@ -82,20 +82,6 @@ AUTH_USER_MODEL = 'accounts.Account'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-if not DEBUG:
-    DATABASES = {
-	"default": dj_database_url.parse('postgres://koladbase_user:DXKJLpTg3feCTBjL0R5h5VvkibnMnpfv@dpg-ck7avnnsasqs73a2on5g-a.oregon-postgres.render.com/koladbase')
-}
-
-
-else:
-
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-           'NAME': BASE_DIR / 'db.sqlite3',
-        }
-    }
 
 
 # '''
@@ -114,16 +100,16 @@ else:
 #     }
 # }
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': 'railway',
-#         'USER': 'postgres',
-#         'PASSWORD': 'foGSaMF9xUxAL5agoFri',
-#         'HOST': 'containers-us-west-136.railway.app',
-#         'PORT': 7521,
-#     }
-# }
+ DATABASES = {
+     'default': {
+         'ENGINE': 'django.db.backends.postgresql',
+         'NAME': 'Fastapi',
+         'USER': 'postgres',
+         'PASSWORD': '1234',
+         'HOST': 'localhost',
+         'PORT': 5432,
+     }
+ }
 
 
 # Password validation
