@@ -9,7 +9,6 @@ https://docs.djangoproject.com/en/4.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
-
 import os
 from pathlib import Path
 import dj_database_url
@@ -97,7 +96,7 @@ AUTH_USER_MODEL = 'accounts.Account'
 
 if not DEBUG:
     DATABASES = {
-	"default": dj_database_url.parse('postgres://koladbase_user:DXKJLpTg3feCTBjL0R5h5VvkibnMnpfv@dpg-ck7avnnsasqs73a2on5g-a.oregon-postgres.render.com/koladbase')
+	"default": dj_database_url.parse('postgres://fastapi_hfri_user:5c3cJnKO6ZkxFzXWVs5oR64ri7TxMDce@dpg-cno5cmfsc6pc73bbovtg-a.oregon-postgres.render.com/fastapi_hfri')
 }
 
 
