@@ -101,16 +101,8 @@ AUTH_USER_MODEL = 'accounts.Account'
 # }
 
 DATABASES = {
-     'default': {
-         'ENGINE': 'django.db.backends.postgresql',
-         'NAME': 'Fastapi',
-         'USER': 'postgres',
-         'PASSWORD': '1234',
-         'HOST': 'localhost',
-         'PORT': 5432,
-     }
- }
-
+	"default": dj_database_url.parse('postgres://koladbase_user:DXKJLpTg3feCTBjL0R5h5VvkibnMnpfv@dpg-ck7avnnsasqs73a2on5g-a.oregon-postgres.render.com/koladbase')
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
