@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-lo7ag)oqk9@t@_des0=kmtv%o1&=z@vxa1e5_9f650+i**bu=y
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['.vercel.app', 'localhost', "127.0.0.1"]
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -82,17 +82,20 @@ AUTH_USER_MODEL = 'accounts.Account'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'railway',
-        'USER': 'postgres',
-        'PASSWORD': 'UDL4sqtQdmZvLPePzvgL',
-        'HOST': 'containers-us-west-81.railway.app',
-        'PORT': 7854,
-    }
+if not DEBUG:
+    DATABASES = {
+	"default": dj_database_url.parse('postgres://koladbase_user:DXKJLpTg3feCTBjL0R5h5VvkibnMnpfv@dpg-ck7avnnsasqs73a2on5g-a.oregon-postgres.render.com/koladbase')
 }
 
+
+else:
+
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+           'NAME': BASE_DIR / 'db.sqlite3',
+        }
+    }
 
 
 # '''
