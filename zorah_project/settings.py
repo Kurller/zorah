@@ -97,7 +97,7 @@ AUTH_USER_MODEL = 'accounts.Account'
 
 if not DEBUG:
     DATABASES = {
-	"default": dj_database_url.parse('postgres://fastapi_hfri_user:5c3cJnKO6ZkxFzXWVs5oR64ri7TxMDce@dpg-cno5cmfsc6pc73bbovtg-a/fastapi_hfri')
+	"default": dj_database_url.parse('postgres://koladb_jkvz_user:qDkS7LEbrhnsCf3RWWwOASU2XIYFQ9vr@dpg-cnvtjh5a73kc73c9uksg-a.oregon-postgres.render.com/koladb_jkvz')
 }
 
 
