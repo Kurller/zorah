@@ -25,7 +25,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-lo7ag)oqk9@t@_des0=kmtv%o1&=z@vxa1e5_9f650+i**bu=y'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ["*"]
 
@@ -94,22 +94,17 @@ AUTH_USER_MODEL = 'accounts.Account'
 #     }
 # }
 # '''
-
-if not DEBUG:
-    DATABASES = {
-	"default": dj_database_url.parse('postgres://koladb_jkvz_user:qDkS7LEbrhnsCf3RWWwOASU2XIYFQ9vr@dpg-cnvtjh5a73kc73c9uksg-a.oregon-postgres.render.com/koladb_jkvz')
-}
-
-
-else:
-
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-           'NAME': BASE_DIR / 'db.sqlite3',
-        }
+    
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'koladb',
+        'USER': 'kola',
+        'PASSWORD': 'kolawole',
+        'HOST': 'postgresql-167044-0.cloudclusters.net',
+        'PORT':10028,
     }
-
+}
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
 
